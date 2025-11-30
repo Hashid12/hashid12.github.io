@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberHunt 3D | Bug Bounty Nexus</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.min.js"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 overflow-x-hidden">
+    <custom-navbar></custom-navbar>
+    
+    <main class="relative z-10">
+        <!-- Hero Section with 3D Scene -->
+        <section class="relative h-screen flex items-center justify-center overflow-hidden">
+            <div id="3d-container" class="absolute inset-0 z-0"></div>
+            <div class="relative z-10 text-center px-4 max-w-6xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
+                    Hunt Bugs Like Never Before
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                    Dive into our 3D cybersecurity platform where vulnerabilities become visible and bounties come to life.
+                </p>
+                <div class="flex gap-4 justify-center">
+                    <a href="#" class="px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all">
+                        Start Hunting
+                    </a>
+                    <a href="#" class="px-8 py-3 border border-blue-400 rounded-full font-medium hover:bg-blue-900/30 transition-all">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
+                <i data-feather="chevron-down" class="text-blue-400"></i>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-20 px-4 max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">Our Cyber Arsenal</h2>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="feature-card bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl border border-gray-700 hover:border-blue-400 transition-all">
+                    <div class="w-16 h-16 bg-blue-900/30 rounded-lg flex items-center justify-center mb-6">
+                        <i data-feather="shield" class="text-blue-400 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Real-time Scanning</h3>
+                    <p class="text-gray-400">Advanced scanning technology that detects vulnerabilities as they emerge.</p>
+                </div>
+                <div class="feature-card bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl border border-gray-700 hover:border-purple-400 transition-all">
+                    <div class="w-16 h-16 bg-purple-900/30 rounded-lg flex items-center justify-center mb-6">
+                        <i data-feather="dollar-sign" class="text-purple-400 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Bounty Rewards</h3>
+                    <p class="text-gray-400">Earn competitive rewards for every valid vulnerability you discover.</p>
+                </div>
+                <div class="feature-card bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl border border-gray-700 hover:border-green-400 transition-all">
+                    <div class="w-16 h-16 bg-green-900/30 rounded-lg flex items-center justify-center mb-6">
+                        <i data-feather="users" class="text-green-400 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Community Network</h3>
+                    <p class="text-gray-400">Connect with top security researchers and learn from the best.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3D Vulnerability Visualization -->
+        <section class="py-20 px-4 bg-gradient-to-b from-gray-900 to-black">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-16">Visualize Vulnerabilities</h2>
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-4">Interactive 3D Threat Modeling</h3>
+                        <p class="text-gray-400 mb-6">Our platform transforms abstract security concepts into tangible 3D models you can interact with and understand at a glance.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="text-green-400 mr-3 mt-1"></i>
+                                <span>Visual representation of attack surfaces</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="text-green-400 mr-3 mt-1"></i>
+                                <span>Real-time vulnerability mapping</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="text-green-400 mr-3 mt-1"></i>
+                                <span>Interactive penetration testing simulations</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="relative h-96 bg-gray-800/50 rounded-xl border border-gray-700 overflow-hidden">
+                        <div id="vulnerability-visualization" class="absolute inset-0"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-20 px-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-4 gap-8 text-center">
+                    <div class="stat-card p-6 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700">
+                        <div class="text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">1,250+</div>
+                        <div class="text-gray-400">Vulnerabilities Found</div>
+                    </div>
+                    <div class="stat-card p-6 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700">
+                        <div class="text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-500">$2.8M+</div>
+                        <div class="text-gray-400">In Bounties Paid</div>
+                    </div>
+                    <div class="stat-card p-6 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700">
+                        <div class="text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-yellow-500">850+</div>
+                        <div class="text-gray-400">Security Researchers</div>
+                    </div>
+                    <div class="stat-card p-6 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700">
+                        <div class="text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-500">99.7%</div>
+                        <div class="text-gray-400">Satisfaction Rate</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
